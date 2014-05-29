@@ -1,0 +1,54 @@
+---
+layout: post
+title:  "Another 65c816 assembler"
+date:   2014-05-28 13:33:47
+categories: a816 update
+---
+
+I was tired to have to constantly patch or use outdated assemblers (X816 was great but with no source available and depending on Dos...)
+
+I made a simplistic assembler in python that was able to output ips patches. It's only use is for hacking snes games.
+
+For now the macroes are supported done by processing the file with gpp.
+
+Main opcodes and addressing mode are implemented.
+
+Give it a try:
+
+{% highlight bash %}
+$ ./x816 --help
+usage: x816.py [-h] [--verbose] [-o OUTPUT_FILE] input_file
+
+a816 Arguments parser
+
+positional arguments:
+  input_file            The asm file to assemble.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --verbose             Displays all log levels.
+  -o OUTPUT_FILE, --output OUTPUT_FILE
+                        Output file
+{% endhighlight %}
+
+
+Sample Makefile used in the ff4 project
+
+{% highlight makefile linenos %}
+# Final Fantasy IV assembler parts
+AS = x816
+GPP = gpp
+
+PROJECT= ff4
+
+all: build/$(PROJECT).ips
+
+build/$(PROJECT).ips: build/$(PROJECT)_precomp.s
+        PYTHONPATH=../src $(AS) -o build/$(PROJECT).ips build/$(PROJECT)_precomp.s
+
+build/$(PROJECT)_precomp.s:  $(wildcard src/*.s)
+        $(GPP) ff4.s > build/$(PROJECT)_precomp.s
+
+clean:
+        rm -f build/ff4.ips build/ff4_precomp.s
+{% endhighlight %}

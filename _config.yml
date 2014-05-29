@@ -1,0 +1,10 @@
+# Site settings
+title: Snes ninja
+email: your-email@domain.com
+description: "Ceci n'est pas une description."
+baseurl: ""
+url: "http://yourdomain.com"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
