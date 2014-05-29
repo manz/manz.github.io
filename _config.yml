@@ -3,7 +3,7 @@ title: Snes ninja
 email: your-email@domain.com
 description: "Ceci n'est pas une description."
 baseurl: ""
-url: "http://yourdomain.com"
+url: "http://snes.ninja"
 
 # Build settings
 markdown: kramdown
