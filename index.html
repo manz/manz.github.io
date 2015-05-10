@@ -3,20 +3,30 @@ layout: default
 sitemap:
     exclude: 'yes'
 ---
+<div class="page-header" id="banner">
+    <div class="row">
+        <div class="col-lg-8 col-md-7 col-sm-6">
+            <h1>Snes.ninja</h1>
+
+            <p class="lead">A place were we talk about SNES</p>
+        </div>
+        <img class="centered-image" src="/images/sf1.jpg"/>
+    </div>
+</div>
 
 <div class="home">
-    
-  <h1>Posts</h1>
 
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+    <h1>Posts</h1>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+    <ul class="posts">
+        {% for post in site.posts %}
+        <li>
+            <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>
